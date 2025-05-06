@@ -16,21 +16,21 @@ then after I used these Command in initialize and commit then push the file.
   git push origin main```
 
 then after I created a seperate branch then make the changes and committed it by these commands.
- ```bash
+
   git branch feature/update-styling
   git switch feature/update-styling
   git commit -m "first commit"
-  git push origin feature/update-styling```
+  git push origin feature/update-styling
 then after I created a seperate branch then make the changes and committed it by these commands.
- ``` bash
+ 
   git branch feature/add-content
   git switch feature/add-content
   git commit -m "second commit"
-  git push origin feature/update-styling ```
+  git push origin feature/update-styling 
 then after I merged the both branches with main and committed it with these commands.
-  ```bash
+  
   git switch main
-  git merge feature/update-styling```
+  git merge feature/update-styling
 Here accept changes and complete Merge.
    git merge feature/add-content
 Here accept changes and complete Merge.
