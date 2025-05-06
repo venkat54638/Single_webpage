@@ -35,5 +35,44 @@ Here accept changes and complete Merge.
    git merge feature/add-content
 Here accept changes and complete Merge.
   git push origin main
-by these we can slove the merge conflict
+by these we can slove the merge conflict '''
+Husky is tool leverages Git hooks to enforces code quality standards and run tests before commits and pushes,ensuring that only quality code is added to the repository.
+commands:
+" git init"
+"npx husky-init && npm install"
+"npm install --save-dev lint-staged"
+here we need to change the package json file :
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "prettier --write"]
+  }
+}
+for fixing the errors
+"npx eslint . --fix"
+"npx prettier --write "
+"git commit -m "feat: added validation for user input"
+here we will do continuous integrtions.
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
   
